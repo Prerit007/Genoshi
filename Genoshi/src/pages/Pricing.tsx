@@ -1,13 +1,18 @@
 import { useState } from 'react';
 import PriceCard from "../components/PriceCard"
+import ComparisonTable from "../components/ComparisonTable"
+import FAQ from "../components/FAQ"
+import Header from "../components/Header"
 
 const Pricing = () => {
   const [selectedPlan, setSelectedPlan] = useState('basic');
   return (
+    <>
+    <Header/>
     <div className="flex flex-col items-center bg-black p-4">
       <div className="mb-2 mt-12 text-center">
-        <h1 className="mb-4 text-7xl font-black text-white">Pricing Plans</h1>
-        <p className="text-lg text-white">Choose the right pricing for you and get started working on your project.</p>
+        <h1 className="mb-4 text-7xl font-black text-[#3898ED]">Pricing Plans</h1>
+        <p className="text-lg text-white">Select the perfect price tag and dive into your project journey!</p>
 
       </div>
       <div className="flex flex-col gap-8 p-10 xl:flex-row">
@@ -43,6 +48,18 @@ const Pricing = () => {
         onSelect={()=> setSelectedPlan("enterprise")}/>
       </div>
     </div>
+
+    <div className="flex flex-col items-center bg-gray-700">
+      <h2 className="mb-4 text-7xl font-black text-[#0C0C1C] text-center mt-12">Comparison</h2>
+      <p className="text-lg text-white text-center p-2 mb-5">"Comparing prices: Find your project's perfect match!"</p>
+      <ComparisonTable />
+    </div>
+    <div className="flex flex-col items-center bg-gray-700">
+      <h2 className="mb-4 text-7xl font-black text-[#0C0C1C] text-center mt-12">Frequently Asked Questions</h2>
+      <p className="text-lg text-white text-center p-2 mb-5">If you’ve got a question, there’s a good chance we’ve answered it below. Take a look and if you still need help, get in touch, and we’ll happily help you out!</p>
+      <FAQ /> 
+    </div>
+    </>
   )
 }
 

@@ -13,16 +13,7 @@ interface PriceCardProps {
 const PriceCard = ({name, plan,description, binText, price, features, color, selected, onSelect}: PriceCardProps) => {
   return (
     <div className="flex flex-col items-center">
-      <input
-        type="radio"
-        name="plan"
-        id={`${plan}-plan`}
-        value={plan}
-        checked={selected}
-        onChange={onSelect}
-      />
-      <label htmlFor={`${plan}-plan`}>{name}</label>
-      <div style={{ backgroundColor: color, opacity: selected ? 1 : 0.5 }} className="flex min-h-[428px] w-[320px] flex-col rounded-3xl p-8 mt-4">
+      <div style={{ backgroundColor: color, opacity: selected ? 1 : 0.5 }} className="flex min-h-[428px] w-[320px] flex-col rounded-3xl p-8 mt-4 mb-4">
         <h2 className="mb-5 text-5xl font-bold text-center">{name}</h2>
         <div className="mb-5 flex items-end text-3xl font-black">
         {price ? (<> <div>${price}/month</div></>): (" ")}
@@ -45,6 +36,15 @@ const PriceCard = ({name, plan,description, binText, price, features, color, sel
       </ul>
       <button className="mt-auto rounded-xl bg-black py-3 px-6 text-lg font-medium text-white">{binText}</button>
       </div>
+      <input
+        className="w-5 h-5"
+        type="radio"
+        name="plan"
+        id={`${plan}-plan`}
+        value={plan}
+        checked={selected}
+        onChange={onSelect}
+      />
     </div>
     
   )
