@@ -1,14 +1,12 @@
 import { useState } from 'react';
-import PriceCard from "../components/PriceCard"
-import ComparisonTable from "../components/ComparisonTable"
-import FAQ from "../components/FAQ"
-import Header from "../components/Header"
+import PriceCard from "../components/Pricing/PriceCard"
+import ComparisonTable from "../components/Pricing/ComparisonTable"
+import FAQ from "../components/Pricing/FAQ"
 
 const Pricing = () => {
   const [selectedPlan, setSelectedPlan] = useState('basic');
   return (
     <>
-    <Header/>
     <div className="flex flex-col items-center bg-black p-4">
       <div className="mb-2 mt-12 text-center">
         <h1 className="mb-4 text-7xl font-black text-[#3898ED]">Pricing Plans</h1>
