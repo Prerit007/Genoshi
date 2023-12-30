@@ -2,16 +2,23 @@ import React, {useState} from 'react';
 import UserDetails from '../components/UserDetails';
 import UsageMetrics from '../components/UsageMetrics';
 import ActionButtons from '../components/ActionButtons';
-import FavoriteSection from '../components/FavoriteSection';
 import CreateGraph from '../components/Graph/CreateGraph';
 import RecentSection from '../components/RecentSection';
 import SavedSection from '../components/SavedSection';
 import Modal from 'react-modal';
+import FavouriteSection from '../components/FavoriteSection';
+import Account from '../components/Profile/Account';
 
 const ProfilePage: React.FC = () => {
   const [isCreateGraphModalOpen, setIsCreateGraphModalOpen] = useState(false);
+  const [isAccountSettingsModalOpen, setIsAccountSettingsModalOpen] = useState(false);
+
   const handleCreateGraphClick = () => {
     setIsCreateGraphModalOpen(true);
+  };
+
+  const handleSettingsClick = () => {
+    setIsAccountSettingsModalOpen(true);
   };
   return (
     <>
@@ -28,7 +35,7 @@ const ProfilePage: React.FC = () => {
             chatQueriesUsed: '50/100',
           },
         }}
-        onSettingsClick={() => console.log('Settings clicked')}
+        onSettingsClick={handleSettingsClick}
       />
       <UsageMetrics
         metrics={{
@@ -40,14 +47,21 @@ const ProfilePage: React.FC = () => {
       />
       <ActionButtons
     onCreateGraphClick={handleCreateGraphClick}
+    onManagePapersClick={() => console.log('Manage papers clicked')}
+    onViewSharedGraphsClick={() => console.log('View shared graphs clicked')}
   />
 
   <Modal isOpen={isCreateGraphModalOpen} onRequestClose={() => setIsCreateGraphModalOpen(false)}>
     <CreateGraph onClose={() => setIsCreateGraphModalOpen(false)} />
   </Modal>
+  <Modal isOpen={isAccountSettingsModalOpen} onRequestClose={() => setIsAccountSettingsModalOpen(false)}>
+          <Account />
+        </Modal>
       <RecentSection />
       <SavedSection />
-      <FavoriteSection />
+      <FavouriteSection
+      onFavouritesClick={() => console.log('Favourites clicked')}
+      onCollectionsClick={() => console.log('Collections clicked')}/>
     </div>
     </>
   );
