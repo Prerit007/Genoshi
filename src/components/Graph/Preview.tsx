@@ -1,8 +1,4 @@
-import React from 'react'
-
-type Props = {}
-
-const Preview = (props: Props) => {
+const Preview = () => {
   return (
     <div>Preview</div>
   )

@@ -1,8 +1,4 @@
-import React from 'react'
-// Graph List is a list of graphs
-type Props = {}
-
-const GraphDetails = (props: Props) => {
+const GraphDetails = () => {
   return (
     <div>GraphDetails</div>
   )

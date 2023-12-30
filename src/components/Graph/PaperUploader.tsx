@@ -1,8 +1,4 @@
-import React from 'react'
-
-type Props = {}
-
-const PaperUploader = (props: Props) => {
+const PaperUploader = () => {
   return (
     <div>PaperUploader</div>
   )

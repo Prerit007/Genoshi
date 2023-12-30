@@ -52,7 +52,7 @@ const ProfilePage: React.FC = () => {
   />
 
   <Modal isOpen={isCreateGraphModalOpen} onRequestClose={() => setIsCreateGraphModalOpen(false)}>
-    <CreateGraph onClose={() => setIsCreateGraphModalOpen(false)} />
+    <CreateGraph />
   </Modal>
   <Modal isOpen={isAccountSettingsModalOpen} onRequestClose={() => setIsAccountSettingsModalOpen(false)}>
           <Account />
