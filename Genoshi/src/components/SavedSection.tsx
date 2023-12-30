@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 
 interface SavedGraphItem {
   id: string;
@@ -28,50 +29,59 @@ const SavedGraphsList: React.FC<{}> = () => {
       id: "3",
       title: "Graph C",
       dateCreated: new Date(),
-      thumbnailUrl: "/thumbnails/graph-c.gif",},
-      {
-        id: "4",
-        title: "Graph D",
-        dateCreated: new Date(),
-        thumbnailUrl: "/thumbnails/graph-d.gif",},
-        {
-          id: "5",
-          title: "Graph E",
-          dateCreated: new Date(),
-          thumbnailUrl: "/thumbnails/graph-e.gif",}
+      thumbnailUrl: "/thumbnails/graph-c.gif",
+    },
+    {
+      id: "4",
+      title: "Graph D",
+      dateCreated: new Date(),
+      thumbnailUrl: "/thumbnails/graph-d.gif",
+    },
+    {
+      id: "5",
+      title: "Graph E",
+      dateCreated: new Date(),
+      thumbnailUrl: "/thumbnails/graph-e.gif",
+    },
   ];
 
   return (
     <div className="container mx-auto px-4 mt-8">
       <h2 className="text-2xl font-bold mb-4 text-white">Saved Graphs</h2>
       <ul className="grid grid-cols-1 sm:grid-cols-1 gap-4">
-        {savedGraphs.slice(0, isExpanded ? savedGraphs.length : 4).map((item) => (
-          <li key={item.id} className="bg-white shadow rounded-lg p-4 ">
-            <h3>{item.title}</h3>
-            <p>Date Created: {item.dateCreated.toLocaleDateString()}</p>
-            <div className="flex flex-row items-center justify-end">
-              <button
-                className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700"
-                onClick={() => setShowGraphDialog(item.id)}
-              >
-                Preview
-              </button>
-              <button
-                className="ml-4 bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-700"
-              >
-                Share
-              </button>
-            </div>
-          </li>
-        ))}
+        {savedGraphs
+          .slice(0, isExpanded ? savedGraphs.length : 4)
+          .map((item) => (
+            <li key={item.id} className="bg-white shadow rounded-lg p-4 ">
+              <h3>{item.title}</h3>
+              <p>Date Created: {item.dateCreated.toLocaleDateString()}</p>
+              <div className="flex flex-row items-center justify-end">
+                <Link
+                  className="mr-4 bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-400"
+                  to={`/graphs/${item.id} `}
+                >
+                  Details
+                </Link>
+                <button
+                  className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-400"
+                  onClick={() => setShowGraphDialog(item.id)}
+                >
+                  Preview
+                </button>
+                <button className="ml-4 bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-400">
+                  Share
+                </button>
+              </div>
+            </li>
+          ))}
         {savedGraphs.length > 4 && (
           <button
             onClick={() => setIsExpanded(!isExpanded)}
             className={`w-full text-center bg-gray-200 py-2 px-4 rounded-md hover:bg-gray-300 ${
-              isExpanded ? 'text-blue-600' : 'text-gray-400'
+              isExpanded ? "text-blue-600" : "text-gray-400"
             }`}
           >
-            {isExpanded ? 'Show Less' : 'View More'}
+            {isExpanded ? "Show Less" : "View More"}
           </button>
         )}
       </ul>

@@ -1,54 +1,60 @@
-import React, { useState, useEffect } from 'react';
-import { GRAPH_DATA } from '../../constants/graphData';
+import React from 'react';
 
-interface GraphDetailsProps {
-  graphId: string;
-  onClose: () => void;
+interface GraphDetailsData {
+  title: string;
+  description: string;
+  dateCreated: Date;
+  // ... other graph data properties
+  papers: string[];
 }
 
-const GraphDetails: React.FC<GraphDetailsProps> = ({ graphId, onClose }) => {
-  const [graphData, setGraphData] = useState<{
-    name: string;
-    dateCreated: string;
-    description: string;
-    papers: { id: string; name: string }[];
-    image: string;
-  }>({
-    name: '',
-    dateCreated: '',
-    description: '',
-    papers: [],
-    image: '',
-  });
+const sampleGraphData: GraphDetailsData = {
+  title: "Sample Graph",
+  description: "This is a sample graph for demonstration purposes.",
+  dateCreated: new Date(),
+  papers: ["Paper 1", "Paper 2", "Paper 3"],
+};
 
-  useEffect(() => {
-    const graph = GRAPH_DATA[graphId];
-    setGraphData(graph);
-  }, [graphId]);
-
+const GraphDetails: React.FC<{}> = () => {
   return (
-    <div className="graph-details-dialog">
-      <h2>{graphData.name}</h2>
-      <p>Created on: {graphData.dateCreated}</p>
-
-      <img src={graphData.image} alt={graphData.name} />
-
-      <p>{graphData.description}</p>
-
-      <ul>
-        {graphData.papers.map((paper) => (
-          <li key={paper.id}>
-            {paper.name}
-          </li>
-        ))}
-      </ul>
-
-      <div className="actions">
-        <button onClick={() => onClose()}>Close</button>
-        <button>Share</button>
-        <button>Favorite</button>
-        <button>Edit</button>
-        <button>Delete</button>
+    <div className="container mx-auto p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="col-span-1 lg:col-start-1">
+          <h2 className="text-3xl font-bold mb-4">{sampleGraphData.title}</h2>
+          <p className="text-lg text-gray-600 mb-4">
+            Date Created: {sampleGraphData.dateCreated.toLocaleDateString()}
+          </p>
+          <p className="text-lg text-gray-600">{sampleGraphData.description}</p>
+        </div>
+        <div className="col-span-1 lg:col-start-2">
+          <div className="mt-4 lg:mt-0">
+            <h3 className="text-xl font-medium mb-2">Related Papers:</h3>
+            <ul className="list-disc pl-4">
+              {sampleGraphData.papers.map((paper, index) => (
+                <li key={index} className="mb-2">
+                  {paper}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="mt-6 flex items-center justify-end">
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Edit
+            </button>
+            <button
+              className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded ml-4"
+            >
+              Share
+            </button>
+            <button
+              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-4"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
