@@ -137,7 +137,7 @@ const CreateGraph: React.FC = () => {
           <div className="form-section p-6">
             <h2 className="section-heading text-blue-500">Graph Settings</h2>
             <div className="p-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2">
+              <label className="block text-pink-700 text-sm font-bold mb-2">
                 Layout:
               </label>
 
@@ -148,7 +148,7 @@ const CreateGraph: React.FC = () => {
               </select>
             </div>
             <div className="p-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2">
+              <label className="block text-pink-700 text-sm font-bold mb-2">
                 Color Scheme:
               </label>
 
