@@ -8,9 +8,17 @@ const Graph: React.FC = () => {
 
   return (
     <div>
-      {/* ... other content */}
+      {/* ... other content on the Graph page, such as navigation, headings, etc. */}
+
       {graphId && (
         <GraphDetails graphId={graphId} onClose={() => setIsGraphDetailsOpen(false)} />
+      )}
+
+      {/* Trigger to open the GraphDetails dialog, e.g., a button or link */}
+      {!graphId && (
+        <button onClick={() => setIsGraphDetailsOpen(true)}>
+          View Graph Details
+        </button>
       )}
     </div>
   );
