@@ -1,8 +1,4 @@
-import React from 'react'
-
-type Props = {}
-
-const UsageStats = (props: Props) => {
+const UsageStats = () => {
   return (
     <div>UsageStats</div>
   )

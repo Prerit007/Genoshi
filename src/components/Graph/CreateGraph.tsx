@@ -2,12 +2,12 @@ import React, { useState } from "react";
 
 const CreateGraph: React.FC = () => {
   const [isPreviewVisible, setIsPreviewVisible] = useState(false);
-  const [sliderPosition, setSliderPosition] = useState(0);
+  // const [sliderPosition, setSliderPosition] = useState(0);
   const [advancedSettingsExpanded, setAdvancedSettingsExpanded] =
     useState(false);
 
   const handleSliderChange = (newPosition: number) => {
-    setSliderPosition(newPosition);
+    // setSliderPosition(newPosition);
     setIsPreviewVisible(newPosition > 1);
   };
 

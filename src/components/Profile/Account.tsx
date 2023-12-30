@@ -26,7 +26,7 @@ const Account: React.FC = () => {
           <label className="block text-gray-700 text-sm font-bold mb-2 mt-2">
         Bio
           </label>
-          <textarea placeholder="Bio" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="3" />
+          <textarea placeholder="Bio" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
         </div>
       ),
     },
